@@ -22,12 +22,12 @@ test.describe('Visual Comparison - TC1', () => {
   });
 
   // TC1-006: Compare invalid email error block on homepage vs. thank-you page
-  test('TC1-006: compare invalid email error on homepage vs thank-you', async ({ page }) => {
+  test('@visual TC1-006: compare invalid email error on homepage vs thank-you', async ({ page }) => {
     await runVisualErrorComparison(page, 'invalid-email', invalidDir, 'Invalid Email');
   });
 
   // TC1-007: Compare required field error block on homepage vs. thank-you page
-  test('TC1-007: compare required field error on homepage vs thank-you', async ({ page }) => {
+  test('@visual TC1-007: compare required field error on homepage vs thank-you', async ({ page }) => {
     await runVisualErrorComparison(page, '', emptyDir, 'Required Field');
   });
 });
