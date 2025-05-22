@@ -6,6 +6,7 @@ The suite validates key user-facing functionality on the [Netlify website](https
 - Sitemap and SEO checks
 - Broken link (404) detection
 - Pixel-by-pixel **visual validation** of error messages
+- **Computed style comparison** of validation blocks (e.g., hidden vs. visible error messages)
 
 All tests are fully integrated with **GitHub Actions CI**, and each pipeline run generates an HTML test report.
 
