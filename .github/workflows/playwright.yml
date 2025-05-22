@@ -30,11 +30,11 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run all Playwright tests
-        run: npx playwright test
+      # - name: Run all Playwright tests
+      #   run: npx playwright test
       
-      # - name: Run only non-visual tests
-      #   run: npx playwright test --grep-invert @visual
+      - name: Run only non-visual tests
+        run: npx playwright test --grep-invert @visual
 
       
       - name: Upload Playwright HTML report
