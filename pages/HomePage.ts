@@ -49,39 +49,4 @@ export class HomePage extends BasePage {
     await this.newsletterEmailInput.fill(email);
     await this.newsletterSubmitButton.click();
   }
-
-  // Assert that the required field validation message is visible and correctly rendered
-  async expectRequiredFieldErrorVisible(): Promise<void> {
-    expect(await this.requiredFieldError.isVisible(), 'Required field error must be visible').toBe(true);
-
-    const box = await this.requiredFieldError.boundingBox();
-    expect(box).not.toBeNull();
-    expect(box?.width).toBeGreaterThan(0);
-    expect(box?.height).toBeGreaterThan(0);
-
-    const text = await this.requiredFieldError.innerText();
-    expect(text.trim()).toBe('Please complete this required field.');
-  }
-
-  async expectInvalidEmailErrorNotVisible(): Promise<void> {
-    await expect(this.invalidEmailError).toBeHidden();
-  }
-
-  // Assert that the required field validation message is NOT visible before interaction
-  async expectRequiredFieldErrorNotVisible(): Promise<void> {
-    await expect(this.requiredFieldError).toBeHidden();
-  }
-
-  // Assert that the invalid email format error is visible and correctly rendered
-  async expectInvalidEmailErrorVisible(): Promise<void> {
-    expect(await this.invalidEmailError.isVisible(), 'Invalid email error must be visible').toBe(true);
-
-    const box = await this.invalidEmailError.boundingBox();
-    expect(box).not.toBeNull();
-    expect(box?.width).toBeGreaterThan(0);
-    expect(box?.height).toBeGreaterThan(0);
-
-    const text = await this.invalidEmailError.innerText();
-    expect(text.trim()).toBe('Email must be formatted correctly.');
-  }
 }
