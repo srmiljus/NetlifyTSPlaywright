@@ -4,4 +4,6 @@ export const Routes = {
 
 export const TestData = {
     INVALID_EMAIL: 'not-an-email@',
+    EMPTY_EMAIL: '',
 };
+
