@@ -1,3 +1,4 @@
+
 # 🎭 NetlifyTSPlaywright Test Suite
 
 This repository contains an end-to-end automated test suite written in **Playwright** with **TypeScript**.
@@ -73,13 +74,14 @@ All tests are fully integrated with **GitHub Actions CI**, and each pipeline run
 
 This test suite uses:
 
-	•	✅ Functional validation of the newsletter subscription form (valid, invalid, and empty email inputs)
-	•	✅ SEO and sitemap checks to ensure key pages are indexed and crawlable
-	•	✅ Broken link detection, verifying no anchor links return 404 status
-	•	✅ Pixel-by-pixel visual comparison of validation messages using pixelmatch + sharp
-	•	✅ Computed style comparison of validation blocks (e.g., ensuring error messages are present in DOM but hidden via CSS when expected)
-	•	✅ Tag-based test grouping (e.g., @visual, @seo) for modular execution in CI pipelines
-	•	✅ Clean Page Object Model (POM) structure with reusable methods and locators
+- ✅ Functional validation of the newsletter subscription form (valid, invalid, and empty email inputs)
+- ✅ SEO and sitemap checks to ensure key pages are indexed and crawlable
+- ✅ Broken link detection, verifying no anchor links return 404 status
+- ✅ Pixel-by-pixel visual comparison of validation messages using pixelmatch + sharp
+- ✅ Computed style comparison of validation blocks (e.g., ensuring error messages are present in DOM but hidden via CSS when expected)
+- ✅ Tag-based test grouping (e.g., @visual, @seo) for modular execution in CI pipelines
+- ✅ Clean Page Object Model (POM) structure with reusable methods and locators
+- ✅ Uses custom Playwright fixtures to inject page objects (e.g., HomePage, ThanksPage), replacing manual initialization in each test
 
 ---
 
@@ -96,11 +98,11 @@ This test suite uses:
 
 This project includes full **GitHub Actions** CI integration:
 
-	•	✅ Runs on every push or pull request to main or master
-	•	✅ Supports manual test selection via GitHub Actions (Run workflow):
+- ✅ Runs on every push or pull request to main or master
+- ✅ Supports manual test selection via GitHub Actions (Run workflow):
 → run all tests, non-visual only, or visual-only based on tag
-	•	✅ Automatically installs dependencies and Playwright browsers
-	•	✅ Publishes Playwright HTML report as an artifact after each run
+- ✅ Automatically installs dependencies and Playwright browsers
+- ✅ Publishes Playwright HTML report as an artifact after each run
 
 > Workflow file: `.github/workflows/playwright.yml`
 
@@ -141,6 +143,7 @@ NetlifyTSPlaywright/
 ├── pages/                     # Page Object Models (e.g. HomePage, ThanksPage)
 ├── tests/                     # All test specs (functional, visual, SEO)
 ├── utils/                     # Custom visual testing tools
+├── fixtures.ts                # Custom Playwright fixtures
 ├── playwright.config.ts       # Playwright configuration
 └── README.md                  # This documentation file
 ```
