@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { test } from '../fixtures';
 import path from 'path';
 import fs from 'fs';
 import { runVisualErrorComparison } from '../utils/visualUtils';
@@ -11,7 +11,7 @@ const emptyDir = path.join(screenshotsDir, 'withoutEmail');
 
 // Test suite for visual comparison of validation error blocks (TC1)
 test.describe('Visual Comparison - TC1', () => {
-  // Before all tests: clean and re-create screenshot folders
+  // Clean and prepare screenshot folders once before the test suite
   test.beforeAll(() => {
     if (fs.existsSync(screenshotsDir)) {
       fs.rmSync(screenshotsDir, { recursive: true, force: true });
