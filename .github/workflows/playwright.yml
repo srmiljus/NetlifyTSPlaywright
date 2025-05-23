@@ -5,6 +5,17 @@ on:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      testGroup:
+        description: 'Choose which test group to run'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - non-visual
+          - visual-only
 
 jobs:
   test:
@@ -12,31 +23,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
-      
       - name: Install dependencies
         run: npm ci
 
-      
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run all Playwright tests
-        run: npx playwright test
-      
-      # - name: Run only non-visual tests
-      #   run: npx playwright test --grep-invert @visual
+      - name: Run selected Playwright tests
+        run: |
+          if [ "${{ github.event.inputs.testGroup }}" == "all" ]; then
+            npx playwright test
+          elif [ "${{ github.event.inputs.testGroup }}" == "non-visual" ]; then
+            npx playwright test --grep-invert @visual
+          elif [ "${{ github.event.inputs.testGroup }}" == "visual-only" ]; then
+            npx playwright test --grep @visual
+          fi
 
-      
       - name: Upload Playwright HTML report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
