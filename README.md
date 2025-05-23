@@ -73,12 +73,13 @@ All tests are fully integrated with **GitHub Actions CI**, and each pipeline run
 
 This test suite uses:
 
-- ✅ Functional validation of the newsletter subscription form (valid/invalid/empty email)
-- ✅ SEO and sitemap checks to ensure visibility on search engines
-- ✅ Detection of broken anchor links (404 validation)
-- ✅ Visual comparison of error states using `pixelmatch` + `sharp`
-- ✅ Separation of tests using tags (e.g. `@visual`) to optimize CI
-- ✅ Clean Page Object Model structure for reusable logic
+	•	✅ Functional validation of the newsletter subscription form (valid, invalid, and empty email inputs)
+	•	✅ SEO and sitemap checks to ensure key pages are indexed and crawlable
+	•	✅ Broken link detection, verifying no anchor links return 404 status
+	•	✅ Pixel-by-pixel visual comparison of validation messages using pixelmatch + sharp
+	•	✅ Computed style comparison of validation blocks (e.g., ensuring error messages are present in DOM but hidden via CSS when expected)
+	•	✅ Tag-based test grouping (e.g., @visual, @seo) for modular execution in CI pipelines
+	•	✅ Clean Page Object Model (POM) structure with reusable methods and locators
 
 ---
 
