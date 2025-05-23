@@ -96,10 +96,11 @@ This test suite uses:
 
 This project includes full **GitHub Actions** CI integration:
 
-- ✅ Runs on every push or pull request to `main` or `master`
-- ✅ Automatically installs dependencies and Playwright browsers
-- ✅ Executes only non-visual (`@visual`-tagged tests excluded) in CI
-- ✅ Publishes Playwright HTML report as an artifact
+	•	✅ Runs on every push or pull request to main or master
+	•	✅ Supports manual test selection via GitHub Actions (Run workflow):
+→ run all tests, non-visual only, or visual-only based on tag
+	•	✅ Automatically installs dependencies and Playwright browsers
+	•	✅ Publishes Playwright HTML report as an artifact after each run
 
 > Workflow file: `.github/workflows/playwright.yml`
 
